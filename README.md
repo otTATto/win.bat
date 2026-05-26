@@ -1,10 +1,23 @@
 # win.bat
 
-.BAT files for Windows
+Batch files for Windows personal productivity.
 
-## About each file
+## Files
 
-| file name | overview | 
-| :-- | :-- | 
-| sym | 管理者権限で "C:\Tools\*" から "C:\Windows\*" にシンボリックリンクを作成する | 
-| vsc | カレントディレクトリを VS Code で開く | 
+| File  | Description                                                                               |
+| :---- | :---------------------------------------------------------------------------------------- |
+| `sym` | Create a symlink in `C:\Windows\` pointing to the script's own directory (requires admin) |
+| `vsc` | Open the current directory in Visual Studio Code                                          |
+
+## Tech Stack
+
+| Tool                                | Purpose             |
+| :---------------------------------- | :------------------ |
+| [Prettier](https://prettier.io/) v3 | Markdown formatting |
+
+## Formatting
+
+```bash
+npm install
+npm run format
+```
