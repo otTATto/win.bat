@@ -1,4 +1,4 @@
-:: 管理者権限で "C:\Tools\*" から "C:\Windows\*" にシンボリックリンクを作成する
+:: 管理者権限で，このスクリプトと同じディレクトリにあるバッチファイルを "C:\Windows\*" にシンボリックリンクとして登録する
 @echo off
 
 :: 管理者権限で実行しているか確認
@@ -23,9 +23,9 @@ if "%~1"=="" (
 set name=%~1
 
 :: シンボリックリンクの作成
-if exist "C:\\Windows\\%name%.bat" (
+if exist "C:\Windows\%name%.bat" (
     :: 既に存在する場合，削除してから作成
     del "C:\Windows\%name%.bat"
-) 
-mklink "C:\\Windows\\%name%.bat" "C:\\Tools\\%name%.bat"
+)
+mklink "C:\Windows\%name%.bat" "%~dp0%name%.bat"
 pause
