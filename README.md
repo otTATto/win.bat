@@ -8,6 +8,7 @@ Batch files for Windows personal productivity.
 | :---- | :---------------------------------------------------------------------------------------- |
 | `sym` | Create a symlink in `C:\Windows\` pointing to the script's own directory (requires admin) |
 | `vsc` | Open the current directory in Visual Studio Code                                          |
+| `z`   | Open the current directory in Zed                                                         |
 
 ## Registering bat files
 
