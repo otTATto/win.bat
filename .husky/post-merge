@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+./scripts/run-npm-install.sh ORIG_HEAD HEAD
