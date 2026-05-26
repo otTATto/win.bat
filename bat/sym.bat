@@ -22,10 +22,11 @@ if "%~1"=="" (
 :: 引数を変数に設定
 set name=%~1
 
-:: シンボリックリンクの作成
-if exist "C:\Windows\%name%.bat" (
-    :: 既に存在する場合，削除してから作成
-    del "C:\Windows\%name%.bat"
-)
-mklink "C:\Windows\%name%.bat" "%~dp0%name%.bat"
+:: このスクリプト自身がシンボリックリンクの場合，PowerShell でリンク先の実体ディレクトリを解決する
+set "target_dir=%~dp0"
+for /f "usebackq delims=" %%I in (`powershell -NoProfile -Command "$t = (Get-Item '%~f0').Target; if ($t) { Split-Path $t -Parent } else { Split-Path '%~f0' -Parent }"`) do set "target_dir=%%I\"
+
+:: シンボリックリンクの作成（既存のリンクやリンク切れも含めて事前に削除）
+del "C:\Windows\%name%.bat" 2>nul
+mklink "C:\Windows\%name%.bat" "%target_dir%%name%.bat"
 pause
